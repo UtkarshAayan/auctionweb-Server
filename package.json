@@ -33,7 +33,7 @@
     "mv": "^2.1.1",
     "node-cron": "^3.0.3",
     "nodemailer": "^6.9.10",
-    "nodemon": "^3.0.3",
+    "nodemon": "^3.1.7",
     "otp-agent": "^3.0.3",
     "otp-gen-agent": "^1.1.2",
     "otp-generator": "^4.0.1",
