@@ -15,4 +15,8 @@ router.get('/product/:productId', orderController.getOrderByProductId);
 //allordersby sellerID
 router.get('/all/seller/:userId', orderController.getAllOrderBySellerId);
 
+//allordersby buyerID
+
+router.get('/orderhistory/:buyerId', orderController.getOrderHistory);
+
 module.exports = router;
