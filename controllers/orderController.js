@@ -408,6 +408,32 @@ exports.getAllOrderBySellerId = async (req, res, next) => {
   }
 };
 
+//orderlist for buyers
+
+exports.getOrderHistory = async (req, res,next) => {
+  const buyerId = req.params.buyerId;
+
+  try {
+    // Find orders where the buyer matches the provided buyer ID
+    const orders = await Order.find({ buyer: buyerId })
+      .populate('product', 'productName') // Populate product details (add more fields if needed)
+      .populate('buyer', 'name email') // Populate buyer details (name, email, etc.)
+      .sort({ createdAt: -1 }); // Sort orders by most recent
+
+    if (!orders || orders.length === 0) {
+      return next(createError(404, "No orders found for this buyer."));
+    }
+
+ 
+    return next(
+      createSuccess(200, "All Buyers Orders", 
+        orders)
+    );
+  } catch (error) {
+    return next(createError(500, "Internal server error"));
+  }
+};
+
 
 
 

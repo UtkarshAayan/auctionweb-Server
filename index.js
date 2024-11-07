@@ -33,6 +33,8 @@ const privacyRoute = require('./routes/privacyRoute');
 const countryRoute = require('./routes/countryRoute');
 const inAppNotificationRoute = require('./routes/inAppNotificationRoute');
 const bannerRoutes = require('./routes/homeBannerImageRoute');
+const transactionRoutes = require('./routes/transactionRoutes');
+
 // const errorMiddleware = require('./middleware/errorMiddleware')
 const path = require('path');
 const fs = require('fs');
@@ -92,6 +94,7 @@ app.use('/api', inAppNotificationRoute);
 app.use('/api/payments', paymentRoutes);
 app.use('/api/banner', bannerRoutes);
 app.use('/api/about', aboutRoute);
+app.use('/api', transactionRoutes);
 //app.use('/uploads/uploadDocuments', express.static(path.join(__dirname, 'uploads/uploadDocuments')));
 //Response handler Middleware
 

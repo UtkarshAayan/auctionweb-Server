@@ -8,7 +8,7 @@ exports.createPaymentIntent = async (req, res) => {
         amount: amount * 100, // Convert to cents
         currency: 'usd',
       });
-      console.log('Payment Intent:', paymentIntent); // Log the payment intent for debugging
+     
       res.send({ clientSecret: paymentIntent.client_secret });
     } catch (error) {
       console.error('Error creating payment intent:', error); // Log the error
