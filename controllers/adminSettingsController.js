@@ -27,7 +27,7 @@ exports.updateBuyerPremium = async (req, res, next) => {
     const settings = await AdminSettings.findOneAndUpdate(
       {}, // Find the document to update
       { buyerPremium },
-      { new: true, upsert: true } // Create a new document if none exists
+      { new: true, upsert: true } 
     );
 
     return next(createSuccess(200, "Buyer Premium Updated Successfully", settings));
