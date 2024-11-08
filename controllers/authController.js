@@ -165,7 +165,7 @@ const registerBuyer = async (req, res, next) => {
 //     pass:"yver vjuu fvbb hcot"
 //    }
 //  });
-//  //const resetLink = `http://localhost:4200/reset/${token}`;
+//  //const resetLink = `http://88.222.212.120/reset/${token}`;
 //  let mailDetails={
 //   from: "ut.gupta29@gmail.com",
 //   subject: "Reset Password !",
@@ -297,7 +297,7 @@ const sendEmail = async (req, res, next) => {
 //     user.otpExpiration = Date.now() + 15 * 60 * 1000;
 //     await user.save();
 
-//     const ResetPasswordLink = `http://localhost:3000/reset-password?token=${otp}`;
+//     const ResetPasswordLink = `http://88.222.212.120:3000/reset-password?token=${otp}`;
 
 //     const mailTransporter = nodemailer.createTransport({
 //       service: "gmail",

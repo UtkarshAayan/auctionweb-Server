@@ -163,14 +163,14 @@ exports.getProductsByCategory = async (req, res, next) => {
       const imagesWithURLs = product.uploadDocuments.map((image) => {
         return {
           ...image._doc,
-          url: `http://localhost:3000/api/product/uploadDocuments/${image.filename}`,
+          url: `http://88.222.212.120:3000/api/product/uploadDocuments/${image.filename}`,
         };
       });
 
       const essentialDocsWithURLs = product.essentialDocs.map((doc) => {
         return {
           ...doc._doc,
-          url: `http://localhost:3000/api/product/essentialDocs/${doc.filename}`,
+          url: `http://88.222.212.120:3000/api/product/essentialDocs/${doc.filename}`,
         };
       });
 
@@ -245,12 +245,12 @@ exports.getProductsByCatandSubcat = async (req, res, next) => {
     const proWithImageURLs = products.map((product) => {
       const imagesWithURLs = product.uploadDocuments.map((image) => ({
         ...image._doc,
-        url: `http://localhost:3000/api/product/uploadDocuments/${image.filename}`,
+        url: `http://88.222.212.120:3000/api/product/uploadDocuments/${image.filename}`,
       }));
 
       const essentialDocsWithURLs = product.essentialDocs.map((doc) => ({
         ...doc._doc,
-        url: `http://localhost:3000/api/product/essentialDocs/${doc.filename}`,
+        url: `http://88.222.212.120:3000/api/product/essentialDocs/${doc.filename}`,
       }));
 
       return {
