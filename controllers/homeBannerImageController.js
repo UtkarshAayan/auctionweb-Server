@@ -14,7 +14,7 @@ const getBannerImages = async (req, res) => {
     res.status(200).json({
       bannerImages: banner.bannerImages.map(img => {
         // Ensure forward slashes for URLs
-        return `https://menaauctions.com/uploads/${img.replace(/\\/g, '/')}`;
+        return `https://menaauctions.com${img.replace(/\\/g, '/')}`;
       })
     });
   };
