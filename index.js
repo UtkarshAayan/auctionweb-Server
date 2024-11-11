@@ -1,12 +1,9 @@
 require('dotenv').config()
 const express = require('express')
 const mongoose = require('mongoose')
-const config = require('./config');
 const cron = require('node-cron');
 require('./middleware/auctionJob'); // Start the job
-// const multer = require('multer')
-// const path= require('path')
-// const companyLoginRoutes = require('./routes/companyLoginRoutes')
+
 const roleRoute = require('./routes/roleRoute')
 const authRoute = require('./routes/authRoute')
 const paymentRoutes = require('./routes/paymentRoutes');
@@ -35,7 +32,7 @@ const inAppNotificationRoute = require('./routes/inAppNotificationRoute');
 const bannerRoutes = require('./routes/homeBannerImageRoute');
 const transactionRoutes = require('./routes/transactionRoutes');
 
-// const errorMiddleware = require('./middleware/errorMiddleware')
+
 const path = require('path');
 const fs = require('fs');
 const PORT = process.env.PORT || 3000
@@ -54,48 +51,36 @@ app.use(cors(corsOptions))
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(cookieParser())
-// app.use('/api/login', companyLoginRoutes)
 
 
-// app.use('/api/products', productRoutes);
-// app.use('/api/bids', bidRoutes1);
-
-app.use('/api/categories', categoryRoutes);
-//to create roles
-app.use('/api/role', roleRoute)
-//to register and login
-app.use('/api/auth', authRoute)
-//to list users
-app.use('/api/user', userRoute)
-// to add iteminventory
-app.use('/api/item', itemInventoryRoute)
+//routes
+app.use('/categories', categoryRoutes);
+app.use('/role', roleRoute)
+app.use('/auth', authRoute)
+app.use('/user', userRoute)
+app.use('/item', itemInventoryRoute)
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
-//to use sellerproduct
-app.use('/api/product', sellerProductRoute)
-//buyer
-app.use('/api/bids',bidRoute );
-//admin
-app.use('/api/admin', adminRoutes);
-//to use dropdown
-app.use('/api/dropdown', dropdownRoute)
-app.use('/api/buyer',buyerRoute)
-app.use('/api/wishlist', wishlistRoutes);
-app.use('/api/orders', orderRoutes);
-app.use('/api/adminSettings', adminSettingsRoutes);
-app.use('/api/help', helpRoutes);
-app.use('/api', howToSellRoutes);
-app.use('/api', howToBuyRoutes);
-app.use('/api/request', requestRoute);
-app.use('/api', emailTemplateRoutes);
-app.use('/api/terms', termsRoute);
-app.use('/api/privacy', privacyRoute);
-app.use('/api/country', countryRoute);
-app.use('/api', inAppNotificationRoute);
-app.use('/api/payments', paymentRoutes);
-app.use('/api/banner', bannerRoutes);
-app.use('/api/about', aboutRoute);
-app.use('/api', transactionRoutes);
-//app.use('/uploads/uploadDocuments', express.static(path.join(__dirname, 'uploads/uploadDocuments')));
+app.use('/product', sellerProductRoute)
+app.use('/bids',bidRoute );
+app.use('/admin', adminRoutes);
+app.use('/dropdown', dropdownRoute)
+app.use('/buyer',buyerRoute)
+app.use('/wishlist', wishlistRoutes);
+app.use('/orders', orderRoutes);
+app.use('/adminSettings', adminSettingsRoutes);
+app.use('/help', helpRoutes);
+app.use('/', howToSellRoutes);
+app.use('/', howToBuyRoutes);
+app.use('/request', requestRoute);
+app.use('/', emailTemplateRoutes);
+app.use('/terms', termsRoute);
+app.use('/privacy', privacyRoute);
+app.use('/country', countryRoute);
+app.use('/', inAppNotificationRoute);
+app.use('/payments', paymentRoutes);
+app.use('/banner', bannerRoutes);
+app.use('/about', aboutRoute);
+app.use('/', transactionRoutes);
 //Response handler Middleware
 
 app.use((obj, req, res, next) => {
@@ -108,7 +93,7 @@ app.use((obj, req, res, next) => {
         data: obj.data
     })
 })
-// app.use(errorMiddleware);
+
 
 //database connect
 

@@ -5,7 +5,6 @@ const createError = require('../middleware/error')
 const createSuccess = require('../middleware/success')
 const jwt = require('jsonwebtoken')
 const nodemailer= require('nodemailer')
-const config = require('../config');
 const EmailTemplate = require('../models/emailTemplateModel');
 //signup
 const signup = async (req, res, next) => {
@@ -52,7 +51,7 @@ const login = async (req, res, next) => {
     const { _id, isAdmin, roles } = user;
     const token = jwt.sign(
       { id: _id, isAdmin, roles },
-      config.secret,
+      process.env.JWT_SECRET,
       { expiresIn: '1h' }
     );
 
@@ -141,66 +140,6 @@ const registerBuyer = async (req, res, next) => {
   }
 };
 
-//sendresetmail
-
-// const sendEmail = async (req, res, next) => {
-//   const email = req.body.email;
-//   const user = await User.findOne({ email: { $regex: '^' + email + '$', $options: 'i' } });
-// if(!user){
-//   return next(createError(404, "User Not found"))
-// }
-//  const payload={
-//   email:user.email
-//  }
-//  const expiryTime = 900;
-//  const token = jwt.sign(payload,process.env.JWT_SECRET,{expiresIn:expiryTime});
-//  const newToken = new UserToken({
-//   userId: user._id,
-//   token: token
-//  });
-//  const mailTransporter = nodemailer.createTransport({
-//   service:"gmail",
-//   auth:{
-//     user:"ut.gupta29@gmail.com",
-//     pass:"yver vjuu fvbb hcot"
-//    }
-//  });
-//  //const resetLink = `http://88.222.212.120/reset/${token}`;
-//  let mailDetails={
-//   from: "ut.gupta29@gmail.com",
-//   subject: "Reset Password !",
-//   to: email,
-// //  text: `Click the following link to reset your password: ${resetLink}`,
-//   html: `<html>
-//   <head>
-//       <title>Password Reset Request</title>
-//   </head>
-//   <body>
-//       <h1>Password Reset Request</h1>
-//       <p>Dear ${user.name},</p>
-//       <p>We have received a request to reset your password for your account with Auction Bidding Application. To complete the password reset process, please click on the button below:</p>
-//       <a href=${process.env.LIVE_URL}/reset-password/${token}><button style="background-color: #4CAF50; color: white; padding: 14px 20px; border: none;
-//       cursor: pointer; border-radius: 4px;">Reset Password</button></a>
-//       <p>Please note that this link is only valid for a <b>15 minutes</b>.
-//       If you did not request a password reset, please ignore this message.</p>
-//       <p>Thank you,</p>
-//       <p>Auction Bidding</p>
-//   </body>
-//   </html>`,
-//  };
-//  mailTransporter.sendMail(mailDetails,async(err,data)=>{
-//   if(err){
-//     console.log(err);
-//     return next(createError(500, "Something went wrong"))
-//   }
-//   else{
-//   console.log("Email sent successfully !!!");
-//   await newToken.save();
-//   return next(createSuccess(200, "Email Sent Successfully"))
-//   }
-//  });
-// }
-
 
 const sendEmail = async (req, res, next) => {
   const email = req.body.email;
@@ -280,50 +219,7 @@ const sendEmail = async (req, res, next) => {
   });
 }
 
-//forget password for flutter OTP based
 
-//sendresetmail
-// const sendEmail1 = async (req, res, next) => {
-//   const email = req.body.email;
-//   try {
-//     const user = await User.findOne({ email: { $regex: '^' + email + '$', $options: 'i' } });
-
-//     if (!user) {
-//       return next(createError(404, "User Not found"))
-//     }
-
-//     const otp = Math.floor(1000 + Math.random() * 9000).toString();
-//     user.otp = otp;
-//     user.otpExpiration = Date.now() + 15 * 60 * 1000;
-//     await user.save();
-
-//     const ResetPasswordLink = `http://88.222.212.120:3000/reset-password?token=${otp}`;
-
-//     const mailTransporter = nodemailer.createTransport({
-//       service: "gmail",
-//       auth: {
-//         user: process.env.SMTP_USER,
-//         pass: process.env.SMTP_PASS
-//       }
-//     });
-
-//     const mailDetails = {
-//       from: process.env.SMTP_USER,
-//       to: email,
-//       subject: "Password Reset OTP",
-//       html: `<p>Your OTP for password reset is: <strong>${otp}</strong></p><p>This OTP is valid for 15 minutes.</p>
-//       <p><a href="${ResetPasswordLink}" style="padding: 10px 20px; background-color: #007bff; color: #fff; text-decoration: none; border-radius: 5px;">Reset Password</a></p>`
-//     };
-
-//     await mailTransporter.sendMail(mailDetails);
-//     res.status(200).json({ message: "OTP sent to your email" });
-//   }
-//   catch (error) {
-//     console.error("Error sending OTP email:", error);
-//     res.status(500).json({ message: "Internal Server Error" });
-//   }
-
-// };
 
 const sendEmail1 = async (req, res, next) => {
   try {
