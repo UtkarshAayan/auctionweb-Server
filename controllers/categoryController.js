@@ -22,7 +22,7 @@ exports.getCategories = async (req, res,next) => {
     const categories = await Category.find();
 
     // Base URL for images
-    const baseUrl = `http://51.21.59.126:3000`; // Ensure the path is correctly prefixed
+    const baseUrl = `https://menaauctions.com/uploads/`; // Ensure the path is correctly prefixed
 
     // Map through categories to add full URLs
     const categoriesWithFullUrls = categories.map(category => {
@@ -100,7 +100,7 @@ exports.getCategoriesWithSubcategories = async (req, res, next) => {
     const categories = await Category.find().populate('subcategories').exec();
 
     // Base URL for images
-    const baseUrl = `http://51.21.59.126:3000`; // Ensure the path is correctly prefixed
+    const baseUrl = `https://menaauctions.com/uploads/`; // Ensure the path is correctly prefixed
 
     // Map through categories to add full URLs
     const categoriesWithFullUrls = categories.map(category => {
@@ -163,14 +163,14 @@ exports.getProductsByCategory = async (req, res, next) => {
       const imagesWithURLs = product.uploadDocuments.map((image) => {
         return {
           ...image._doc,
-          url: `http://88.222.212.120:3000/api/product/uploadDocuments/${image.filename}`,
+          url: `https://www.menaauctions.com/api/product/uploadDocuments/${image.filename}`,
         };
       });
 
       const essentialDocsWithURLs = product.essentialDocs.map((doc) => {
         return {
           ...doc._doc,
-          url: `http://88.222.212.120:3000/api/product/essentialDocs/${doc.filename}`,
+          url: `https://www.menaauctions.com/api/product/essentialDocs/${doc.filename}`,
         };
       });
 
@@ -245,12 +245,12 @@ exports.getProductsByCatandSubcat = async (req, res, next) => {
     const proWithImageURLs = products.map((product) => {
       const imagesWithURLs = product.uploadDocuments.map((image) => ({
         ...image._doc,
-        url: `http://88.222.212.120:3000/api/product/uploadDocuments/${image.filename}`,
+        url: `https://www.menaauctions.com/api/product/uploadDocuments/${image.filename}`,
       }));
 
       const essentialDocsWithURLs = product.essentialDocs.map((doc) => ({
         ...doc._doc,
-        url: `http://88.222.212.120:3000/api/product/essentialDocs/${doc.filename}`,
+        url: `https://www.menaauctions.com/api/product/essentialDocs/${doc.filename}`,
       }));
 
       return {
@@ -297,7 +297,7 @@ exports.getCategoryByName = async (req, res, next) => {
     }
 
     // Base URL for images
-    const baseUrl = `http://51.21.59.126:3000`;
+    const baseUrl = `https://menaauctions.com/uploads/`;
 
     // Map through the subcategories to add full URLs
     const subcategoriesWithUrls = category.subcategories.map(subcategory => ({

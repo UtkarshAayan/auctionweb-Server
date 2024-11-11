@@ -230,7 +230,7 @@ const getAllAuction = async (req, res, next) => {
       const imagesWithURLs = user.uploadDocuments.map((image) => {
         return {
           ...image._doc,
-          url: `http://88.222.212.120:3000/api/product/uploadDocuments/${image.filename}`,
+          url: `https://www.menaauctions.com/api/product/uploadDocuments/${image.filename}`,
 
         };
       });
@@ -239,7 +239,7 @@ const getAllAuction = async (req, res, next) => {
       const essentialDocsWithURLs = user.essentialDocs ? user.essentialDocs.map((doc) => {
         return {
           ...doc._doc,
-          url: `http://88.222.212.120:3000/api/product/essentialDocs/${doc.filename}`,
+          url: `https://www.menaauctions.com/api/product/essentialDocs/${doc.filename}`,
 
         };
       }) : [];
@@ -273,7 +273,7 @@ const getAuction = async (req, res, next) => {
     const imagesWithURLs = product.uploadDocuments.map((image) => {
       return {
         ...image._doc,
-        url: `http://88.222.212.120:3000/api/product/uploadDocuments/${image.filename}`,
+        url: `https://www.menaauctions.com/api/product/uploadDocuments/${image.filename}`,
 
       };
     });
@@ -282,7 +282,7 @@ const getAuction = async (req, res, next) => {
     const essentialDocsWithURLs = product.essentialDocs ? product.essentialDocs.map((doc) => {
       return {
         ...doc._doc,
-        url: `http://88.222.212.120:3000/api/product/essentialDocs/${doc.filename}`,
+        url: `https://www.menaauctions.com/api/product/essentialDocs/${doc.filename}`,
 
       };
     }) : [];
@@ -328,7 +328,7 @@ const getAuctionWithWish = async (req, res, next) => {
     const imagesWithURLs = product.uploadDocuments.map((image) => {
       return {
         ...image._doc,
-        url: `http://88.222.212.120:3000/api/product/uploadDocuments/${image.filename}`,
+        url: `https://www.menaauctions.com/api/product/uploadDocuments/${image.filename}`,
 
       };
     });
@@ -337,7 +337,7 @@ const getAuctionWithWish = async (req, res, next) => {
     const essentialDocsWithURLs = product.essentialDocs ? product.essentialDocs.map((doc) => {
       return {
         ...doc._doc,
-        url: `http://88.222.212.120:3000/api/product/essentialDocs/${doc.filename}`,
+        url: `https://www.menaauctions.com/api/product/essentialDocs/${doc.filename}`,
 
       };
     }) : [];
@@ -395,7 +395,7 @@ const getProductsByUserId = async (req, res, next) => {
       const imagesWithURLs = product.uploadDocuments.map((image) => {
         return {
           ...image._doc,
-          url: `http://88.222.212.120:3000/api/product/uploadDocuments/${image.filename}`,
+          url: `https://www.menaauctions.com/api/product/uploadDocuments/${image.filename}`,
         };
       });
 
@@ -404,7 +404,7 @@ const getProductsByUserId = async (req, res, next) => {
         ? product.essentialDocs.map((doc) => {
             return {
               ...doc._doc,
-              url: `http://88.222.212.120:3000/api/product/essentialDocs/${doc.filename}`,
+              url: `https://www.menaauctions.com/api/product/essentialDocs/${doc.filename}`,
             };
           })
         : [];
@@ -472,7 +472,7 @@ const getVerifiedProductsByUser = async (req, res, next) => {
       const imagesWithURLs = product.uploadDocuments.map((image) => {
         return {
           ...image._doc,
-          url: `http://88.222.212.120:3000/api/product/uploadDocuments/${image.filename}`,
+          url: `https://www.menaauctions.com/api/product/uploadDocuments/${image.filename}`,
         };
       });
 
@@ -481,7 +481,7 @@ const getVerifiedProductsByUser = async (req, res, next) => {
         ? product.essentialDocs.map((doc) => {
             return {
               ...doc._doc,
-              url: `http://88.222.212.120:3000/api/product/essentialDocs/${doc.filename}`,
+              url: `https://www.menaauctions.com/api/product/essentialDocs/${doc.filename}`,
             };
           })
         : [];
@@ -771,7 +771,7 @@ const getCatagory = async (req, res, next) => {
       const imagesWithURLs = user.uploadDocuments.map((image) => {
         return {
           ...image._doc,
-          url: `http://88.222.212.120:3000/api/product/uploadDocuments/${image.filename}`,
+          url: `https://www.menaauctions.com/api/product/uploadDocuments/${image.filename}`,
 
         };
       });
@@ -780,7 +780,7 @@ const getCatagory = async (req, res, next) => {
       const essentialDocsWithURLs = user.essentialDocs ? user.essentialDocs.map((doc) => {
         return {
           ...doc._doc,
-          url: `http://88.222.212.120:3000/api/product/essentialDocs/${doc.filename}`,
+          url: `https://www.menaauctions.com/api/product/essentialDocs/${doc.filename}`,
 
         };
       }) : [];
@@ -821,13 +821,13 @@ const liveAuction = async (req, res, next) => {
       // Map uploadDocuments to include URLs
       const imagesWithURLs = product.uploadDocuments.map((image) => ({
         ...image._doc,
-        url: `http://88.222.212.120:3000/api/product/uploadDocuments/${image.filename}`,
+        url: `https://www.menaauctions.com/api/product/uploadDocuments/${image.filename}`,
       }));
 
       // Map essentialDocs to include URLs
       const essentialDocsWithURLs = product.essentialDocs ? product.essentialDocs.map((doc) => ({
         ...doc._doc,
-        url: `http://88.222.212.120:3000/api/product/essentialDocs/${doc.filename}`,
+        url: `https://www.menaauctions.com/api/product/essentialDocs/${doc.filename}`,
       })) : [];
 
       return {
@@ -862,13 +862,13 @@ const futureAuction = async (req, res, next) => {
       // Map uploadDocuments to include URLs
       const imagesWithURLs = product.uploadDocuments.map((image) => ({
         ...image._doc,
-        url: `http://88.222.212.120:3000/api/product/uploadDocuments/${image.filename}`,
+        url: `https://www.menaauctions.com/api/product/uploadDocuments/${image.filename}`,
       }));
 
       // Map essentialDocs to include URLs
       const essentialDocsWithURLs = product.essentialDocs ? product.essentialDocs.map((doc) => ({
         ...doc._doc,
-        url: `http://88.222.212.120:3000/api/product/essentialDocs/${doc.filename}`,
+        url: `https://www.menaauctions.com/api/product/essentialDocs/${doc.filename}`,
       })) : [];
 
       return {
@@ -914,7 +914,7 @@ const getCategoryWithAuctions = async (req, res, next) => {
         const imagesWithURLs = product.uploadDocuments.map((image) => {
           return {
             ...image._doc,
-            url: `http://88.222.212.120:3000/api/product/uploadDocuments/${image.filename}`,
+            url: `https://www.menaauctions.com/api/product/uploadDocuments/${image.filename}`,
 
           };
         });
@@ -923,7 +923,7 @@ const getCategoryWithAuctions = async (req, res, next) => {
         const essentialDocsWithURLs = product.essentialDocs ? product.essentialDocs.map((doc) => {
           return {
             ...doc._doc,
-            url: `http://88.222.212.120:3000/api/product/essentialDocs/${doc.filename}`,
+            url: `https://www.menaauctions.com/api/product/essentialDocs/${doc.filename}`,
 
           };
         }) : [];
@@ -978,7 +978,7 @@ const getAuctionHistory = async (req, res, next) => {
       const imagesWithURLs = product.uploadDocuments.map((image) => {
         return {
           ...image._doc,
-          url: `http://88.222.212.120:3000/api/product/uploadDocuments/${image.filename}`,
+          url: `https://www.menaauctions.com/api/product/uploadDocuments/${image.filename}`,
 
         };
       });
@@ -987,7 +987,7 @@ const getAuctionHistory = async (req, res, next) => {
       const essentialDocsWithURLs = product.essentialDocs ? product.essentialDocs.map((doc) => {
         return {
           ...doc._doc,
-          url: `http://88.222.212.120:3000/api/product/essentialDocs/${doc.filename}`,
+          url: `https://www.menaauctions.com/api/product/essentialDocs/${doc.filename}`,
 
         };
       }) : [];
@@ -1028,7 +1028,7 @@ const getBidProducts = async (req, res, next) => {
       const imagesWithURLs = product.uploadDocuments.map((image) => {
         return {
           ...image._doc,
-          url: `http://88.222.212.120:3000/api/product/uploadDocuments/${image.filename}`,
+          url: `https://www.menaauctions.com/api/product/uploadDocuments/${image.filename}`,
 
         };
       });
@@ -1037,7 +1037,7 @@ const getBidProducts = async (req, res, next) => {
       const essentialDocsWithURLs = product.essentialDocs ? product.essentialDocs.map((doc) => {
         return {
           ...doc._doc,
-          url: `http://88.222.212.120:3000/api/product/essentialDocs/${doc.filename}`,
+          url: `https://www.menaauctions.com/api/product/essentialDocs/${doc.filename}`,
 
         };
       }) : [];

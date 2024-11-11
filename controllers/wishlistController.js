@@ -26,7 +26,7 @@ exports.getWishlist = async (req, res, next) => {
       const imagesWithURLs = product.uploadDocuments.map(image => {
         return {
           ...image._doc,
-        url: `http://88.222.212.120:3000/api/product/uploadDocuments/${image.filename}`,
+        url: `https://www.menaauctions.com/api/product/uploadDocuments/${image.filename}`,
 
         };
       });
