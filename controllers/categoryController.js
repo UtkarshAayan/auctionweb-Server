@@ -100,7 +100,7 @@ exports.getCategoriesWithSubcategories = async (req, res, next) => {
     const categories = await Category.find().populate('subcategories').exec();
 
     // Base URL for images
-    const baseUrl = `https://menaauctions.com`; // Ensure the path is correctly prefixed
+    const baseUrl = `https://admin.menaauctions.com`; // Ensure the path is correctly prefixed
 
     // Map through categories to add full URLs
     const categoriesWithFullUrls = categories.map(category => {
@@ -297,7 +297,7 @@ exports.getCategoryByName = async (req, res, next) => {
     }
 
     // Base URL for images
-    const baseUrl = `https://menaauctions.com`;
+    const baseUrl = `https://admin.menaauctions.com`;
 
     // Map through the subcategories to add full URLs
     const subcategoriesWithUrls = category.subcategories.map(subcategory => ({
