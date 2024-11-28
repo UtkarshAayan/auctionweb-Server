@@ -118,7 +118,7 @@ exports.createOrder = async (req, res, next) => {
     await Product.findByIdAndUpdate(productId, { status: 'Sold' });
 
     // Return success response with order details
-     next(createSuccess(201, "Order created successfully", {
+     next(createSuccess(200, "Order created successfully", {
       _id: order._id, // Ensure _id is included in the response
       productId: order.product,
       address: order.address,
@@ -236,7 +236,7 @@ exports.createOrderForBuynow = async (req, res, next) => {
     await Product.findByIdAndUpdate(productId, { status: 'Sold' });
 
     // Return success response with order details
-     next(createSuccess(201, "Order created successfully", {
+     next(createSuccess(200, "Order created successfully", {
       _id: order._id, // Ensure _id is included in the response
       productId: order.product,
       address: order.address,
